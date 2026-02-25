@@ -1,0 +1,10 @@
+2026-02-23 10:15:02 INFO  Application started successfully on port 8080
+2026-02-23 10:15:05 INFO  Connected to database: user_service_db
+2026-02-23 10:15:12 WARNING  High memory usage detected: 78%
+2026-02-23 10:15:18 INFO  Received request GET /api/users
+2026-02-23 10:15:20 INFO  Response sent with status 200
+2026-02-23 10:15:27 ERROR Failed to fetch order details from database
+2026-02-23 10:15:32 INFO  Received request POST /api/register
+2026-02-23 10:15:35 INFO  New user registered successfully: user123
+2026-02-23 10:15:41 WARNING  Disk space usage exceeded 85%
+2026-02-23 10:15:45 ERROR Authentication failed for user: admin
