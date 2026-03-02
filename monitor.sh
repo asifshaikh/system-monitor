@@ -43,12 +43,21 @@ END { print error, warning }
 ' "$LOG_FILE"
 )
 # Extract top 3 frequent words
-TOP_WORDS=$(tr -cs '[:alnum:]' '\n' < "$LOG_FILE" | \
-            tr '[:upper:]' '[:lower:]' | \
-            grep -v '^[0-9]*$' | \
-            sort | uniq -c | sort -nr | head -3 | \
-            awk '{printf "%d. %-15s - %s\n", NR, $2, $1}')
-
+TOP_WORDS=$(awk '
+{
+    for (i = 4; i <= NF; i++) {
+        word = tolower($i)
+        if (word !~ /^[0-9]+$/) {
+            freq[word]++
+        }
+    }
+}
+END {
+    for (w in freq)
+        printf "%s %d\n", w, freq[w]
+}
+' "$LOG_FILE" | sort -k2 -nr | head -3 | \
+awk '{printf "%d. %-15s - %s\n", NR, $1, $2}')
 
 {
 echo "======================================="
