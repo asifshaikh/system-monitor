@@ -8,3 +8,8 @@
 2026-02-23 10:15:35 INFO  New user registered successfully: user123
 2026-02-23 10:15:41 WARNING  Disk space usage exceeded 85%
 2026-02-23 10:15:45 ERROR Authentication failed for user: admin
+2026-03-02 10:25:21 Error error Database connection failed after Warning retry attempt WARNING threshold exceeded
+2026-03-02 10:26:03 warning Disk space low WARNING cleanup required error backup process failed
+2026-03-02 10:27:45 ERROR Payment service error timeout detected Warning fallback triggered warning retry initiated
+2026-03-02 10:28:12 Warning Memory usage high ERROR garbage collector failed error heap allocation error
+2026-03-02 10:29:59 error Authentication failed ERROR invalid token warning suspicious login attempt WARNING account locked

@@ -32,8 +32,16 @@ then
 fi
 
 LOG_LC=$(wc -l < "$LOG_FILE")
-ERROR_WC=$(grep -c ERROR "$LOG_FILE")
-WARNING_WC=$(grep -c WARNING "$LOG_FILE")
+read ERROR_WC WARNING_WC < <(
+awk '
+{
+	level = toupper($3)
+	if (level == "ERROR") error++
+	else if (level == "WARNING") warning++
+}
+END { print error, warning }
+' "$LOG_FILE"
+)
 # Extract top 3 frequent words
 TOP_WORDS=$(tr -cs '[:alnum:]' '\n' < "$LOG_FILE" | \
             tr '[:upper:]' '[:lower:]' | \
